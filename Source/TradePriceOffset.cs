@@ -29,34 +29,41 @@ namespace The_Price_Is_Right
 		public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
 		{
 			MethodInfo ErrorOnceInfo = AccessTools.Method(typeof(Verse.Log), "ErrorOnce");
-			FieldInfo pricePlayerBuyInfo = AccessTools.Field(typeof(Tradeable), "pricePlayerBuy");
-			FieldInfo pricePlayerSellInfo = AccessTools.Field(typeof(Tradeable), "pricePlayerSell");
+
+			MethodInfo AdjustPricesInfo = AccessTools.Method(typeof(BuySellCollapser), nameof(BuySellCollapser.AdjustPrices));
+			
 			
 			foreach (CodeInstruction i in instructions)
 			{
-				if (i.opcode == OpCodes.Call && i.operand == ErrorOnceInfo)
+				if (i.opcode == OpCodes.Ldstr)
 				{
-					yield return new CodeInstruction(OpCodes.Pop);//Remove args to ErrorOnce
-					yield return new CodeInstruction(OpCodes.Pop);
-
-					//Average instead of sell = buy
-					//TODO: Use sell price if nothing to buy, vice versa
-					yield return new CodeInstruction(OpCodes.Ldarg_0);//this (for lvalue)
-					yield return new CodeInstruction(OpCodes.Ldarg_0);//this
-					yield return new CodeInstruction(OpCodes.Ldfld, pricePlayerBuyInfo);//this.Buy
-					yield return new CodeInstruction(OpCodes.Ldarg_0);//this
-					yield return new CodeInstruction(OpCodes.Ldfld, pricePlayerSellInfo);//this.Sell
-					yield return new CodeInstruction(OpCodes.Add);//this.Buy + this.Sell
-					yield return new CodeInstruction(OpCodes.Ldc_R4, 2.0f);//2
-					yield return new CodeInstruction(OpCodes.Div);//(this.Buy + this.Sell) / 2 aka average
-					yield return new CodeInstruction(OpCodes.Stfld, pricePlayerBuyInfo);
-
-					//if (FirstThingColony == null) sell = buy
-					//if (FirstThingTrader == null) buy = sell
+					yield return new CodeInstruction(OpCodes.Ldarg_0);
+					yield return new CodeInstruction(OpCodes.Call, AdjustPricesInfo);
+					yield return new CodeInstruction(OpCodes.Ret) { labels = instructions.Last().labels };
+					yield break;
 				}
 				else
 					yield return i;
 			}
+		}
+
+		public static void AdjustPrices(Tradeable item)
+		{
+			FieldInfo pricePlayerBuyInfo = AccessTools.Field(typeof(Tradeable), "pricePlayerBuy");
+			FieldInfo pricePlayerSellInfo = AccessTools.Field(typeof(Tradeable), "pricePlayerSell");
+
+			float buyPrice = (float)pricePlayerBuyInfo.GetValue(item);
+			float sellPrice = (float)pricePlayerSellInfo.GetValue(item);
+
+			if (item.FirstThingColony == null)
+				sellPrice = buyPrice;
+			else if (item.FirstThingTrader == null)
+				buyPrice = sellPrice;
+			else
+				buyPrice = (sellPrice = (buyPrice + sellPrice) / 2);
+
+			pricePlayerBuyInfo.SetValue(item, buyPrice);
+			pricePlayerSellInfo.SetValue(item, sellPrice);
 		}
 	}
 }
