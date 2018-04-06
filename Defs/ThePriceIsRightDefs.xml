@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThoughtDef>
+		<defName>Traveling</defName>
+    <workerClass>The_Price_Is_Right.ThoughtWorker_Traveling</workerClass>
+    <validWhileDespawned>true</validWhileDespawned>
+		<stages>
+			<li>
+				<label>traveling</label>
+				<description>It's exciting to go on a journey away from the colony.</description>
+				<baseMoodEffect>30</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+
+</Defs>
