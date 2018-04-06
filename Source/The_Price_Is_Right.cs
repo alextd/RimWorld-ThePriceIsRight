@@ -18,15 +18,15 @@ namespace The_Price_Is_Right
 			harmony.PatchAll(Assembly.GetExecutingAssembly()); 
 		}
 
-		// public override void DoSettingsWindowContents(Rect inRect)
-		// {
-			// base.DoSettingsWindowContents(inRect);
-			// GetSettings<Settings>().DoWindowContents(inRect);
-		// }
+		public override void DoSettingsWindowContents(Rect inRect)
+		{
+			base.DoSettingsWindowContents(inRect);
+			GetSettings<Settings>().DoWindowContents(inRect);
+		}
 
-		// public override string SettingsCategory()
-		// {
-			// return "ThePriceIsRight".Translate();
-		// }
+		public override string SettingsCategory()
+		{
+			return "ThePriceIsRight".Translate();
+		}
 	}
 }

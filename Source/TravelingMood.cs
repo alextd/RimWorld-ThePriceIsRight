@@ -8,18 +8,11 @@ using RimWorld.Planet;
 
 namespace The_Price_Is_Right
 {
-	[DefOf]
-	public static class ThoughtDefOf
-	{
-		public static ThoughtDef Traveling;
-	}
-
-
 	public class ThoughtWorker_Traveling : ThoughtWorker
 	{
 		protected override ThoughtState CurrentStateInternal(Pawn pawn)
 		{
-			if (pawn.Map != null && pawn.Map.IsPlayerHome)
+			if (!Settings.Get().moodBonus || (pawn.Map != null && pawn.Map.IsPlayerHome))
 			{
 				return ThoughtState.Inactive;
 			}

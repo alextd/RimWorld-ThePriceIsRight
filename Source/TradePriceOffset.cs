@@ -18,7 +18,7 @@ namespace The_Price_Is_Right
 		//Settlement_TraderTracker.TradePriceImprovementOffsetForPlayer.GetGetMethod
 		public static void Postfix(ref float __result)
 		{
-			__result = .3f;	//not 0.02f :/
+			__result = Settings.Get().tradeBonus;	//not 0.02f :/
 		}
 	}
 
