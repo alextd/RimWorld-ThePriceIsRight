@@ -8,7 +8,12 @@
 			<li>
 				<label>traveling</label>
 				<description>It's exciting to go on a journey away from the colony.</description>
-				<baseMoodEffect>30</baseMoodEffect>
+				<baseMoodEffect>25</baseMoodEffect>
+			</li>
+			<li>
+				<label>traveling well</label>
+				<description>It's exciting to go on a journey away from the colony. And we're comfy!</description>
+				<baseMoodEffect>35</baseMoodEffect>
 			</li>
 		</stages>
 	</ThoughtDef>
