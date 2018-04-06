@@ -62,11 +62,6 @@
       <HintPath>..\..\..\RimWorldWin_Data\Managed\UnityEngine.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <None Include="..\About\About-Release.xml">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="..\About\About.xml" />
-    <None Include="..\About\Preview.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="**\*.cs" />
