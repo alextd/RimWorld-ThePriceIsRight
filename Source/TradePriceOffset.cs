@@ -49,15 +49,16 @@ namespace The_Price_Is_Right
 
 		public static void AdjustPrices(Tradeable item)
 		{
+			if (Settings.Get().bestPrice) return;
 			FieldInfo pricePlayerBuyInfo = AccessTools.Field(typeof(Tradeable), "pricePlayerBuy");
 			FieldInfo pricePlayerSellInfo = AccessTools.Field(typeof(Tradeable), "pricePlayerSell");
 
 			float buyPrice = (float)pricePlayerBuyInfo.GetValue(item);
 			float sellPrice = (float)pricePlayerSellInfo.GetValue(item);
 
-			if (item.FirstThingColony == null)
+			if (Settings.Get().fairPrice && item.FirstThingColony == null)
 				sellPrice = buyPrice;
-			else if (item.FirstThingTrader == null)
+			else if (Settings.Get().fairPrice && item.FirstThingTrader == null)
 				buyPrice = sellPrice;
 			else
 				buyPrice = (sellPrice = (buyPrice + sellPrice) / 2);
