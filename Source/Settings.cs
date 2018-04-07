@@ -34,21 +34,21 @@ namespace The_Price_Is_Right
 			var options = new Listing_Standard();
 			options.Begin(wrect);
 
-			options.SliderLabeled("Your Caravan trade bonus:", ref tradeBonus, "{0:P0}", .02f, .50f);
-			options.Label("Negotiator skill and game difficulty applies on top on this.");
-			options.CheckboxLabeled("Use best price even if unfair", ref bestPrice, "Price bonus applies even if the sell price is higher than the buy price. I trust you not to exploit it for easy cash.");
+			options.SliderLabeled("SettingTradeBonus".Translate(), ref tradeBonus, "{0:P0}", .02f, .50f);
+			options.Label("SettingBonusAlso".Translate());
+			options.CheckboxLabeled("SettingBestPrice".Translate(), ref bestPrice, "SettingBestPriceDesc".Translate());
 			fairPrice &= !bestPrice;
-			options.CheckboxLabeled("Use best price if only the buyer or seller has item", ref fairPrice, "Prices bonus applies if one side has the item. A fair compromise. Stil, don't re-open the trade window");
-			options.Label("Otherwise, when the buy price is lower than the sell price, they are both averaged");
+			options.CheckboxLabeled("SettingFairPrice".Translate(), ref fairPrice, "SettingFairPriceDesc".Translate());
+			options.Label("SettingOtherwisePrice".Translate());
 			bestPrice &= !fairPrice;
 
 			options.Gap();
 
-			options.CheckboxLabeled("Mood bonus for being in a caravan", ref moodBonus);
+			options.CheckboxLabeled("SettingMoodBonus".Translate(), ref moodBonus);
 			if (moodBonus)
 			{
-				options.SliderLabeled("Mood bonus (no beds)", ref moodBonus0, "+{0:0}", 0, 50);
-				options.SliderLabeled("Mood bonus (beds for everyone)", ref moodBonus1, "+{0:0}", 0, 50);
+				options.SliderLabeled("SettingMoodBonusNoBeds".Translate(), ref moodBonus0, "+{0:0}", 0, 50);
+				options.SliderLabeled("SettingMoodBonusBeds".Translate(), ref moodBonus1, "+{0:0}", 0, 50);
 				ThoughtDefOf.Traveling.stages[0].baseMoodEffect = moodBonus0;
 				ThoughtDefOf.Traveling.stages[1].baseMoodEffect = moodBonus1;
 			}

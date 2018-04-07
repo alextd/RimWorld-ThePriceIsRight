@@ -2,5 +2,15 @@
 <LanguageData>
 	
 	<ThePriceIsRight>The Price Is Right</ThePriceIsRight>
+	<SettingTradeBonus>Your Caravan trade bonus:</SettingTradeBonus>
+	<SettingBonusAlso>Negotiator skill and game difficulty applies on top on this.</SettingBonusAlso>
+	<SettingBestPrice>Use best price even if unfair</SettingBestPrice>
+	<SettingBestPriceDesc>Price bonus applies even if the sell price is higher than the buy price. I trust you not to exploit it for easy cash.</SettingBestPriceDesc>
+	<SettingFairPrice>Use best price if only the buyer or seller has item</SettingFairPrice>
+	<SettingFairPriceDesc>Prices bonus applies if one side has the item. A fair compromise. Stil, don't re-open the trade window</SettingFairPriceDesc>
+	<SettingOtherwisePrice>Otherwise, when the buy price is lower than the sell price, they are both averaged</SettingOtherwisePrice>
+	<SettingMoodBonus>Mood bonus for being in a caravan</SettingMoodBonus>
+	<SettingMoodBonusNoBeds>Mood bonus (no beds)</SettingMoodBonusNoBeds>
+	<SettingMoodBonusBeds>Mood bonus (beds for everyone)</SettingMoodBonusBeds>
 	
 </LanguageData>
