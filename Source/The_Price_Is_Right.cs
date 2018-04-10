@@ -26,7 +26,7 @@ namespace The_Price_Is_Right
 
 		public override string SettingsCategory()
 		{
-			return "ThePriceIsRight".Translate();
+			return "TD.ThePriceIsRight".Translate();
 		}
 	}
 }

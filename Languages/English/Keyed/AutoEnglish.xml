@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
 	
-	<ThePriceIsRight>The Price Is Right</ThePriceIsRight>
-	<SettingTradeBonus>Your Caravan trade bonus:</SettingTradeBonus>
-	<SettingBonusAlso>Negotiator skill and game difficulty applies on top on this.</SettingBonusAlso>
-	<SettingBestPrice>Use best price even if unfair</SettingBestPrice>
-	<SettingBestPriceDesc>Price bonus applies even if the sell price is higher than the buy price. I trust you not to exploit it for easy cash.</SettingBestPriceDesc>
-	<SettingFairPrice>Use best price if only the buyer or seller has item</SettingFairPrice>
-	<SettingFairPriceDesc>Prices bonus applies if one side has the item. A fair compromise. Stil, don't re-open the trade window</SettingFairPriceDesc>
-	<SettingOtherwisePrice>Otherwise, when the buy price is lower than the sell price, they are both averaged</SettingOtherwisePrice>
-	<SettingMoodBonus>Mood bonus for being in a caravan</SettingMoodBonus>
-	<SettingMoodBonusNoBeds>Mood bonus (no beds)</SettingMoodBonusNoBeds>
-	<SettingMoodBonusBeds>Mood bonus (beds for everyone)</SettingMoodBonusBeds>
+	<TD.ThePriceIsRight>The Price Is Right</TD.ThePriceIsRight>
+	<TD.SettingTradeBonus>Your Caravan trade bonus:</TD.SettingTradeBonus>
+	<TD.SettingBonusAlso>Negotiator skill and game difficulty applies on top on this.</TD.SettingBonusAlso>
+	<TD.SettingBestPrice>Use best price even if unfair</TD.SettingBestPrice>
+	<TD.SettingBestPriceDesc>Price bonus applies even if the sell price is higher than the buy price. I trust you not to exploit it for easy cash.</TD.SettingBestPriceDesc>
+	<TD.SettingFairPrice>Use best price if only the buyer or seller has item</TD.SettingFairPrice>
+	<TD.SettingFairPriceDesc>Prices bonus applies if one side has the item. A fair compromise. Stil, don't re-open the trade window</TD.SettingFairPriceDesc>
+	<TD.SettingOtherwisePrice>Otherwise, when the buy price is lower than the sell price, they are both averaged</TD.SettingOtherwisePrice>
+	<TD.SettingMoodBonus>Mood bonus for being in a caravan</TD.SettingMoodBonus>
+	<TD.SettingMoodBonusNoBeds>Mood bonus (no beds)</TD.SettingMoodBonusNoBeds>
+	<TD.SettingMoodBonusBeds>Mood bonus (beds for everyone)</TD.SettingMoodBonusBeds>
 	
 </LanguageData>

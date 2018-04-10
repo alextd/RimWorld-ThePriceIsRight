@@ -34,21 +34,21 @@ namespace The_Price_Is_Right
 			var options = new Listing_Standard();
 			options.Begin(wrect);
 
-			options.SliderLabeled("SettingTradeBonus".Translate(), ref tradeBonus, "{0:P0}", .02f, .50f);
-			options.Label("SettingBonusAlso".Translate());
-			options.CheckboxLabeled("SettingBestPrice".Translate(), ref bestPrice, "SettingBestPriceDesc".Translate());
+			options.SliderLabeled("TD.SettingTradeBonus".Translate(), ref tradeBonus, "{0:P0}", .02f, .50f);
+			options.Label("TD.SettingBonusAlso".Translate());
+			options.CheckboxLabeled("TD.SettingBestPrice".Translate(), ref bestPrice, "TD.SettingBestPriceDesc".Translate());
 			fairPrice &= !bestPrice;
-			options.CheckboxLabeled("SettingFairPrice".Translate(), ref fairPrice, "SettingFairPriceDesc".Translate());
-			options.Label("SettingOtherwisePrice".Translate());
+			options.CheckboxLabeled("TD.SettingFairPrice".Translate(), ref fairPrice, "TD.SettingFairPriceDesc".Translate());
+			options.Label("TD.SettingOtherwisePrice".Translate());
 			bestPrice &= !fairPrice;
 
 			options.Gap();
 
-			options.CheckboxLabeled("SettingMoodBonus".Translate(), ref moodBonus);
+			options.CheckboxLabeled("TD.SettingMoodBonus".Translate(), ref moodBonus);
 			if (moodBonus)
 			{
-				options.SliderLabeled("SettingMoodBonusNoBeds".Translate(), ref moodBonus0, "+{0:0}", 0, 50);
-				options.SliderLabeled("SettingMoodBonusBeds".Translate(), ref moodBonus1, "+{0:0}", 0, 50);
+				options.SliderLabeled("TD.SettingMoodBonusNoBeds".Translate(), ref moodBonus0, "+{0:0}", 0, 50);
+				options.SliderLabeled("TD.SettingMoodBonusBeds".Translate(), ref moodBonus1, "+{0:0}", 0, 50);
 				ThoughtDefOf.Traveling.stages[0].baseMoodEffect = moodBonus0;
 				ThoughtDefOf.Traveling.stages[1].baseMoodEffect = moodBonus1;
 			}
