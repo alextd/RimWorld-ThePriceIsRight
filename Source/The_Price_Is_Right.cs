@@ -15,7 +15,7 @@ namespace The_Price_Is_Right
 			HarmonyInstance.DEBUG = true;
 #endif
 			HarmonyInstance harmony = HarmonyInstance.Create("Uuugggg.rimworld.The_Price_Is_Right.main");
-			harmony.PatchAll(Assembly.GetExecutingAssembly()); 
+			harmony.PatchAll(); 
 		}
 
 		public override void DoSettingsWindowContents(Rect inRect)
