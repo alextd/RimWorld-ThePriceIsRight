@@ -12,8 +12,7 @@ using RimWorld.Planet;
 namespace The_Price_Is_Right
 {
 
-	[HarmonyPatch(typeof(Settlement_TraderTracker))]
-	[HarmonyPatch("TradePriceImprovementOffsetForPlayer", PropertyMethod.Getter)]
+	[HarmonyPatch(typeof(Settlement_TraderTracker), "TradePriceImprovementOffsetForPlayer", MethodType.Getter)]
 	static class TradePriceOffset
 	{
 		//Settlement_TraderTracker.TradePriceImprovementOffsetForPlayer.GetGetMethod
