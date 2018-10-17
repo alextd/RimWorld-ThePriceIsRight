@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
 	
+	<Traveling.label>traveling</Traveling.label>
+	<Traveling.description>It's exciting to go on a journey away from the colony.</Traveling.description>
+	<Traveling.label>traveling well</Traveling.label>
+	<Traveling.description>It's exciting to go on a journey away from the colony. And we're comfy!</Traveling.description>
 	
 </LanguageData>
