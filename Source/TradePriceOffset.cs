@@ -47,11 +47,11 @@ namespace The_Price_Is_Right
 			}
 		}
 
+		public static FieldInfo pricePlayerBuyInfo = AccessTools.Field(typeof(Tradeable), "pricePlayerBuy");
+		public static FieldInfo pricePlayerSellInfo = AccessTools.Field(typeof(Tradeable), "pricePlayerSell");
 		public static void AdjustPrices(Tradeable item)
 		{
 			if (Settings.Get().bestPrice) return;
-			FieldInfo pricePlayerBuyInfo = AccessTools.Field(typeof(Tradeable), "pricePlayerBuy");
-			FieldInfo pricePlayerSellInfo = AccessTools.Field(typeof(Tradeable), "pricePlayerSell");
 
 			float buyPrice = (float)pricePlayerBuyInfo.GetValue(item);
 			float sellPrice = (float)pricePlayerSellInfo.GetValue(item);
