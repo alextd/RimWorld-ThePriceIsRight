@@ -18,8 +18,9 @@ namespace The_Price_Is_Right
 			HarmonyInstance harmony = HarmonyInstance.Create("Uuugggg.rimworld.The_Price_Is_Right.main");
 			
 			//Turn off DefOf warning since harmony patches trigger it.
-			harmony.Patch(AccessTools.Method(typeof(DefOfHelper), "EnsureInitializedInCtor"),
-				new HarmonyMethod(typeof(Mod), "EnsureInitializedInCtorPrefix"), null);
+			MethodInfo DefOfHelperInfo = AccessTools.Method(typeof(DefOfHelper), "EnsureInitializedInCtor");
+			if (!harmony.GetPatchedMethods().Contains(DefOfHelperInfo))
+				harmony.Patch(DefOfHelperInfo, new HarmonyMethod(typeof(Mod), "EnsureInitializedInCtorPrefix"), null);
 			
 			harmony.PatchAll();
 		}
