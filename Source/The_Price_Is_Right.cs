@@ -2,7 +2,7 @@
 using System.Linq;
 using Verse;
 using UnityEngine;
-using Harmony;
+using HarmonyLib;
 using RimWorld;
 
 namespace The_Price_Is_Right
@@ -14,9 +14,9 @@ namespace The_Price_Is_Right
 			// initialize settings
 			// GetSettings<Settings>();
 #if DEBUG
-			HarmonyInstance.DEBUG = true;
+			Harmony.DEBUG = true;
 #endif
-			HarmonyInstance harmony = HarmonyInstance.Create("Uuugggg.rimworld.The_Price_Is_Right.main");
+			Harmony harmony = new Harmony("Uuugggg.rimworld.The_Price_Is_Right.main");
 			
 			//Turn off DefOf warning since harmony patches trigger it.
 			MethodInfo DefOfHelperInfo = AccessTools.Method(typeof(DefOfHelper), "EnsureInitializedInCtor");

@@ -5,7 +5,7 @@ using System.Text;
 using System.Reflection;
 using System.Reflection.Emit;
 using RimWorld;
-using Harmony;
+using HarmonyLib;
 using Verse;
 using RimWorld.Planet;
 
