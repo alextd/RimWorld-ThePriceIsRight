@@ -28,32 +28,36 @@ namespace The_Price_Is_Right
 	{
 		public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
 		{
-			MethodInfo ErrorOnceInfo = AccessTools.Method(typeof(Verse.Log), "ErrorOnce");
+			FieldInfo priceBuyInfo = AccessTools.Field(typeof(RimWorld.Tradeable), "pricePlayerBuy");
+			FieldInfo priceSellInfo = AccessTools.Field(typeof(RimWorld.Tradeable), "pricePlayerSell");
 
 			MethodInfo AdjustPricesInfo = AccessTools.Method(typeof(BuySellCollapser), nameof(BuySellCollapser.AdjustPrices));
-			
-			
-			foreach (CodeInstruction i in instructions)
+
+			List<CodeInstruction> instList = instructions.ToList();
+			for (int i = 0; i < instList.Count; i++)
 			{
-				if (i.opcode == OpCodes.Ldstr)
+				CodeInstruction inst = instList[i];
+				//IL_00e9: ldarg.0      // this
+				//IL_00ea: ldarg.0      // this
+				//IL_00eb: ldfld float32 RimWorld.Tradeable::pricePlayerBuy
+				//IL_00f0: stfld float32 RimWorld.Tradeable::pricePlayerSell
+				if (inst.StoresField(priceSellInfo)
+					&& instList[i-1].LoadsField(priceBuyInfo))
 				{
-					yield return new CodeInstruction(OpCodes.Ldarg_0);
-					yield return new CodeInstruction(OpCodes.Call, AdjustPricesInfo);
-					yield return new CodeInstruction(OpCodes.Ret) { labels = instructions.Last().labels };
-					yield break;
+					//Tradeable this, pricePlayerBuy on stack
+					yield return new CodeInstruction(OpCodes.Call, AdjustPricesInfo);//AdjustPrices(Tradeable)
 				}
 				else
-					yield return i;
+					yield return inst;
 			}
 		}
 
 		public static FieldInfo pricePlayerBuyInfo = AccessTools.Field(typeof(Tradeable), "pricePlayerBuy");
 		public static FieldInfo pricePlayerSellInfo = AccessTools.Field(typeof(Tradeable), "pricePlayerSell");
-		public static void AdjustPrices(Tradeable item)
+		public static void AdjustPrices(Tradeable item, float buyPrice)
 		{
 			if (Settings.Get().bestPrice) return;
 
-			float buyPrice = (float)pricePlayerBuyInfo.GetValue(item);
 			float sellPrice = (float)pricePlayerSellInfo.GetValue(item);
 
 			if (Settings.Get().fairPrice && item.FirstThingColony == null)
