@@ -12,7 +12,7 @@ namespace The_Price_Is_Right
 	{
 		protected override ThoughtState CurrentStateInternal(Pawn pawn)
 		{
-			if (!Settings.Get().moodBonus || (pawn.Map != null && pawn.Map.IsPlayerHome))
+			if (!Mod.settings.moodBonus || (pawn.Map != null && pawn.Map.IsPlayerHome))
 			{
 				return ThoughtState.Inactive;
 			}

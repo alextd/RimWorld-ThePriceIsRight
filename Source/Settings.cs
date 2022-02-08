@@ -14,7 +14,7 @@ namespace The_Price_Is_Right
 	}
 
 
-	class Settings : ModSettings
+	public class Settings : ModSettings
 	{
 		public float tradeBonus = 0.30f;
 		public bool bestPrice = true;
@@ -23,11 +23,6 @@ namespace The_Price_Is_Right
 		public bool moodBonus = true;
 		public float moodBonus0 = 25;
 		public float moodBonus1 = 35;
-
-		public static Settings Get()
-		{
-			return LoadedModManager.GetMod<The_Price_Is_Right.Mod>().GetSettings<Settings>();
-		}
 
 		public void DoWindowContents(Rect wrect)
 		{

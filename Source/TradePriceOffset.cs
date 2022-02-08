@@ -18,7 +18,7 @@ namespace The_Price_Is_Right
 		//Settlement_TraderTracker.TradePriceImprovementOffsetForPlayer.GetGetMethod
 		public static void Postfix(ref float __result)
 		{
-			__result = Settings.Get().tradeBonus;	//not 0.02f :/
+			__result = Mod.settings.tradeBonus;	//not 0.02f :/
 		}
 	}
 
@@ -56,13 +56,13 @@ namespace The_Price_Is_Right
 		public static FieldInfo pricePlayerSellInfo = AccessTools.Field(typeof(Tradeable), "pricePlayerSell");
 		public static void AdjustPrices(Tradeable item, float buyPrice)
 		{
-			if (Settings.Get().bestPrice) return;
+			if (Mod.settings.bestPrice) return;
 
 			float sellPrice = (float)pricePlayerSellInfo.GetValue(item);
 
-			if (Settings.Get().fairPrice && item.FirstThingColony == null)
+			if (Mod.settings.fairPrice && item.FirstThingColony == null)
 				sellPrice = buyPrice;
-			else if (Settings.Get().fairPrice && item.FirstThingTrader == null)
+			else if (Mod.settings.fairPrice && item.FirstThingTrader == null)
 				buyPrice = sellPrice;
 			else
 				buyPrice = (sellPrice = (buyPrice + sellPrice) / 2);
