@@ -12,8 +12,8 @@ namespace The_Price_Is_Right
 		public static Settings settings;
 		public Mod(ModContentPack content) : base(content)
 		{
-			// initialize settings
-			settings = GetSettings<Settings>();
+			// initialize settings, but after loading done for def existence.
+			LongEventHandler.ExecuteWhenFinished(() => { settings = GetSettings<Settings>(); });
 #if DEBUG
 			Harmony.DEBUG = true;
 #endif
