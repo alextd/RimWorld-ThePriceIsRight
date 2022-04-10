@@ -52,13 +52,15 @@ namespace The_Price_Is_Right
 			}
 		}
 
-		public static FieldInfo pricePlayerBuyInfo = AccessTools.Field(typeof(Tradeable), "pricePlayerBuy");
-		public static FieldInfo pricePlayerSellInfo = AccessTools.Field(typeof(Tradeable), "pricePlayerSell");
+		public static AccessTools.FieldRef<Tradeable, float> PricePlayerBuy =
+			AccessTools.FieldRefAccess<Tradeable, float>("pricePlayerBuy");
+		public static AccessTools.FieldRef<Tradeable, float> PricePlayerSell =
+			AccessTools.FieldRefAccess<Tradeable, float>("pricePlayerSell");
 		public static void AdjustPrices(Tradeable item, float buyPrice)
 		{
 			if (Mod.settings.bestPrice) return;
 
-			float sellPrice = (float)pricePlayerSellInfo.GetValue(item);
+			float sellPrice = PricePlayerSell(item);
 
 			if (Mod.settings.fairPrice && item.FirstThingColony == null)
 				sellPrice = buyPrice;
@@ -67,8 +69,8 @@ namespace The_Price_Is_Right
 			else
 				buyPrice = (sellPrice = (buyPrice + sellPrice) / 2);
 
-			pricePlayerBuyInfo.SetValue(item, buyPrice);
-			pricePlayerSellInfo.SetValue(item, sellPrice);
+			PricePlayerBuy(item) = buyPrice;
+			PricePlayerSell(item) = sellPrice;
 		}
 	}
 }
