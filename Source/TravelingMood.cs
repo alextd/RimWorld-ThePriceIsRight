@@ -23,9 +23,9 @@ namespace The_Price_Is_Right
 				int colonistCount = carvanPawns.FindAll(p => p.IsColonist).Count;
 				if (bedCount >= colonistCount)
 					return ThoughtState.ActiveAtStage(1);
-
+				return ThoughtState.ActiveAtStage(0);
 			}
-			return ThoughtState.ActiveAtStage(0);
+			return ThoughtState.Inactive;
 		}
 
 		public static int CountBeds(Pawn pawn)
