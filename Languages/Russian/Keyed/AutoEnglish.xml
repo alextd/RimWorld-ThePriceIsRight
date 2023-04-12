@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <TD.ThePriceIsRight>The Price Is Right</TD.ThePriceIsRight>
+  <TD.SettingTradeBonus>Торговый бонус вашего каравана:</TD.SettingTradeBonus>
+  <TD.SettingBonusAlso>На это накладывается навык переговорщика и сложность игры. (2% - базовый игровой бонус)</TD.SettingBonusAlso>
+  <TD.SettingBestPrice>Использовать лучшую цену, даже если она несправедлива</TD.SettingBestPrice>
+  <TD.SettingBestPriceDesc>Ценовой бонус действует, даже если цена продажи выше цены покупки. Я верю, что вы не воспользуетесь этим для получения легкой наживы.</TD.SettingBestPriceDesc>
+  <TD.SettingFairPrice>Использовать лучшую цену, если товар есть только у покупателя или продавца</TD.SettingFairPrice>
+  <TD.SettingFairPriceDesc>Бонус цены применяется, если предмет находится у одной из сторон. Справедливый компромисс. Тем не менее, не стоит снова открывать окно торговли.</TD.SettingFairPriceDesc>
+  <TD.SettingOtherwisePrice>В противном случае, когда цена покупки ниже цены продажи, они обе усредняются</TD.SettingOtherwisePrice>
+  <TD.SettingMoodBonus>Бонус к настроению за пребывание в караване</TD.SettingMoodBonus>
+  <TD.SettingMoodBonusNoBeds>Бонус настроения (без кроватей)</TD.SettingMoodBonusNoBeds>
+  <TD.SettingMoodBonusBeds>Бонус настроения (кровати для всех)</TD.SettingMoodBonusBeds>
+
+</LanguageData>
